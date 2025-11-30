@@ -43,6 +43,7 @@ export default function Header() {
             <Link to="/">Home</Link>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/data-table">Places</Link>
+            <Link to="/profile">Profile</Link> 
 
             {/* Logout Button */}
             <button className="logout-btn" onClick={handleLogout}>
