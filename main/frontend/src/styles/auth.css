@@ -165,7 +165,7 @@
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s ease;
-  background: black;
+  background: white ;
 }
 
 .input-wrapper input:focus {
@@ -358,22 +358,21 @@
 }
 
 .card-1 {
-  top: 10%;
-  left: 10%;
-  animation-delay: 0s;
+  top: 10%;        
+  left: 5%;       
 }
 
 .card-2 {
-  top: 50%;
-  right: 10%;
-  animation-delay: 2s;
+  bottom: 10%;       
+  right: 5%;     
 }
 
 .card-3 {
-  bottom: 15%;
-  left: 15%;
-  animation-delay: 4s;
+  top: 50%;      
+  left: 5%;
+  transform: translateY(-50%);      
 }
+
 
 @keyframes floatCard {
   0%, 100% { transform: translateY(0) rotate(0deg); }

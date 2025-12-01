@@ -27,27 +27,22 @@ export default function Login() {
     try {
       const response = await fetch('http://localhost:5000/auth/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
 
       const data = await response.json();
 
       if (response.ok && data.success) {
-        // Store token and user info
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
-        
-        // Redirect to dashboard
         navigate('/dashboard');
       } else {
         setError(data.message || 'Login failed. Please check your credentials.');
       }
     } catch (err) {
       setError('Network error. Please make sure the server is running.');
-      console.error('Login error:', err);
+      console.error(err);
     } finally {
       setIsLoading(false);
     }
@@ -63,7 +58,8 @@ export default function Login() {
 
       <div className="auth-container">
         <div className="auth-card">
-          {/* Left Side - Form */}
+
+          {/* LEFT SECTION */}
           <div className="auth-form-section">
             <div className="auth-logo">
               <span className="logo-icon">🇱🇧</span>
@@ -127,11 +123,7 @@ export default function Login() {
                 </Link>
               </div>
 
-              <button 
-                type="submit" 
-                className="auth-button"
-                disabled={isLoading}
-              >
+              <button type="submit" className="auth-button" disabled={isLoading}>
                 {isLoading ? (
                   <>
                     <span className="spinner"></span>
@@ -151,34 +143,33 @@ export default function Login() {
             </form>
           </div>
 
-          {/* Right Side - Visual */}
+          {/* RIGHT SECTION */}
           <div className="auth-visual-section">
             <div className="visual-content">
               <div className="floating-card card-1">
                 <span className="card-icon">🏔️</span>
-                <span className="card-text">Explore Mountains</span>
+                <span className="card-text">Explore Historical Places</span>
               </div>
+
               <div className="floating-card card-2">
                 <span className="card-icon">🏖️</span>
                 <span className="card-text">Beautiful Beaches</span>
               </div>
+
               <div className="floating-card card-3">
                 <span className="card-icon">🍽️</span>
                 <span className="card-text">Amazing Food</span>
               </div>
-              
+
               <div className="visual-text">
                 <h2>Discover Lebanon</h2>
                 <p>Access thousands of amazing places, restaurants, and experiences</p>
               </div>
             </div>
           </div>
+
         </div>
 
-        {/* Quick Access Link */}
-        <div className="guest-access">
-          <p>Want to browse first? <Link to="/dashboard">Continue as guest →</Link></p>
-        </div>
       </div>
     </div>
   );

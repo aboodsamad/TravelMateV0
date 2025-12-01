@@ -144,7 +144,6 @@ export default function Dashboard() {
             </div>
             <p className="dashboard-subtitle">
               Explore insights, ratings, and tourism trends across Lebanon 🌴
-              {stats && ` - ${stats.totalPlaces} places`}
             </p>
           </div>
         </div>
