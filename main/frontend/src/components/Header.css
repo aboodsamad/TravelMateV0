@@ -1,61 +1,196 @@
-/* Ensure the header spans full width regardless of parent containers */
-.header {
-  position: relative;
-  left: 50%;
-  right: 50%;
-  width: 100vw;
-  margin-left: -50vw;
-  margin-right: -50vw;
+/* Header.css - RESPONSIVE VERSION */
 
-  background: linear-gradient(90deg, #0077b6, #00b4d8);
-  color: white;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+.header {
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  padding: clamp(12px, 2vw, 16px) clamp(16px, 3vw, 32px);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-sizing: border-box;
-  z-index: 100;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 12px);
+  text-decoration: none;
+  color: white;
+}
+
+.logo-icon {
+  font-size: clamp(28px, 5vw, 36px);
+  line-height: 1;
+}
+
+.logo-text {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* DESKTOP NAVIGATION */
+.desktop-nav {
+  display: flex;
+  gap: clamp(16px, 2vw, 24px);
+  align-items: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: clamp(14px, 2vw, 16px);
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .logout-btn {
   background: #ef4444;
   color: white;
-  padding: 6px 14px;
-  border-radius: 8px;
   border: none;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 600;
   cursor: pointer;
-  font-size: 14px;
-  transition: 0.25s ease;
+  transition: all 0.3s ease;
 }
 
 .logout-btn:hover {
   background: #dc2626;
-  transform: translateY(-2px);
+  transform: scale(1.05);
 }
 
-
-
-
-
-.logo {
-  font-size: 1.6rem;
-  font-weight: bold;
+.login-btn {
+  background: white;
+  color: #6366f1;
+  text-decoration: none;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
 
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
+.login-btn:hover {
+  transform: scale(1.05);
 }
 
-.nav-links a {
+/* MOBILE MENU BUTTON */
+.mobile-menu-btn {
+  display: none;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
   color: white;
+  font-size: clamp(20px, 4vw, 24px);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* MOBILE MENU DROPDOWN */
+.mobile-menu {
+  position: fixed;
+  top: clamp(56px, 10vw, 68px);
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+  z-index: 999;
+  animation: slideDown 0.3s ease;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 16px 24px;
+  color: #1e293b;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s, transform 0.2s;
+  font-size: 16px;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-.nav-links a:hover {
-  color: #caf0f8;
-  transform: translateY(-2px);
+.mobile-nav-link:hover {
+  background: #f1f5f9;
+}
+
+.mobile-nav-link.active {
+  color: #6366f1;
+  font-weight: 700;
+  background: #f1f5f9;
+}
+
+.mobile-logout-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.mobile-login-btn {
+  display: block;
+  padding: 16px 24px;
+  background: #6366f1;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* Desktop - show desktop menu, hide mobile button */
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
+/* Mobile/Tablet - hide desktop menu, show mobile button */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  .mobile-menu-btn {
+    display: block !important;
+  }
 }
