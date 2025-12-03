@@ -410,9 +410,9 @@ export default function DataTable() {
                           <div style={{ display: 'flex', gap: '8px' }}>
                             <button
                               onClick={async () => {
-                                const resp = await fetch(
-                                  `https://travel-mate-backend-jbxi.onrender.comhttps://travel-mate-backend-jbxi.onrender.com/api/places/place-url?placeid=${r.placeid}`
-                                );
+const resp = await fetch(
+  `https://travel-mate-backend-jbxi.onrender.com/api/places/place-url?placeid=${r.placeid}`
+);
                                 const data = await resp.json();
 
                                 if (data.url) {
