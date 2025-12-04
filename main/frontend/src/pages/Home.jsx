@@ -143,12 +143,12 @@ export default function Home() {
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
-              <div className="stat-number">9</div>
+              <div className="stat-number">9+</div>
               <div className="stat-label">Cities</div>
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
-              <div className="stat-number">8</div>
+              <div className="stat-number">8+</div>
               <div className="stat-label">Categories</div>
             </div>
           </div>
