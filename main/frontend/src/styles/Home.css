@@ -617,3 +617,149 @@ section {
 .scroll-to-top:active {
   transform: translateY(-2px);
 }
+
+/* Home.css - ADD THESE RESPONSIVE STYLES TO YOUR EXISTING FILE */
+
+/* Add these media queries at the END of your Home.css file */
+
+/* =====================================================
+   MOBILE RESPONSIVE STYLES FOR HOME PAGE
+   ===================================================== */
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .home-container,
+  .hero-section {
+    padding: clamp(40px, 6vw, 60px) clamp(20px, 3vw, 40px) !important;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  /* Hero section */
+  .hero-title,
+  .home-title,
+  h1 {
+    font-size: clamp(28px, 6vw, 40px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .hero-subtitle,
+  .home-subtitle,
+  .hero p {
+    font-size: clamp(16px, 3vw, 18px) !important;
+  }
+
+  /* Buttons section */
+  .hero-buttons,
+  .cta-buttons,
+  .button-group {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+  }
+
+  .hero-buttons a,
+  .hero-buttons button,
+  .cta-button {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
+  }
+
+  /* Stats grid */
+  .stats-grid,
+  .home-stats {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  /* Category cards */
+  .categories-grid,
+  .category-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  /* Card adjustments */
+  .stat-card,
+  .category-card {
+    padding: clamp(20px, 4vw, 28px) clamp(16px, 3vw, 20px) !important;
+  }
+
+  /* Icons */
+  .icon,
+  .stat-icon,
+  .category-icon {
+    font-size: clamp(40px, 8vw, 56px) !important;
+  }
+
+  /* Text sizes */
+  h2 {
+    font-size: clamp(24px, 5vw, 32px) !important;
+  }
+
+  h3 {
+    font-size: clamp(18px, 3vw, 22px) !important;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .home-container {
+    padding: 20px 12px !important;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 40px 20px !important;
+  }
+
+  .hero-title,
+  h1 {
+    font-size: 28px !important;
+  }
+
+  /* Single column layouts */
+  .stats-grid,
+  .categories-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Buttons */
+  button,
+  .btn {
+    padding: 12px 24px !important;
+    font-size: 14px !important;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 24px 20px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* Prevent horizontal scroll */
+.home-container,
+.home-wrapper,
+body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Responsive images */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* CTA section */
+@media (max-width: 768px) {
+  .cta-section,
+  .cta-container {
+    padding: clamp(32px, 5vw, 48px) clamp(20px, 3vw, 32px) !important;
+    border-radius: clamp(16px, 3vw, 24px) !important;
+  }
+}
